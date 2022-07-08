@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PokemonMatchController {
 
-    @GetMapping("/")
+    @RequestMapping("/home")
     public String home(Model model) {
         model.addAttribute("name", "name");
         return "index";
