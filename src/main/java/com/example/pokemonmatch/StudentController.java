@@ -3,6 +3,7 @@ package com.example.pokemonmatch;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +16,10 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("/")
-    public List<Student> getStudents(){
-        return studentService.getAllStudents();
+    @RequestMapping("/")
+    public String addStudents(@ModelAttribute Student student, Model model){
+        model.addAttribute("student", student);
+        return "studentForm";
     }
 
     @GetMapping("/{id}")
@@ -34,6 +36,12 @@ public class StudentController {
     @PutMapping("/{id}")
     public void updateStudent(@PathVariable("id") String id, @RequestBody Student student) {
         studentService.updateStudent(id, student);
+    }
+
+    @GetMapping("/all")
+    public List<Student> getAllStudents(){
+
+        return studentService.getAllStudents();
     }
 
 
