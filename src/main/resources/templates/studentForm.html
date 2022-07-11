@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<form action="#" method="post" data-th-action="@{/student}" data-th-object="${student}" accept-charset="utf-8">
+  <p><label>Nom : </label><input type="text" data-th-field="*{name}"></p>
+  <p><label>Prénom : </label><input type="number" data-th-field="*{firstName}"></p>
+  <button type="submit">Envoyer</button>
+</form>
+
+</body>
+</html>
