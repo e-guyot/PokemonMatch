@@ -11,24 +11,19 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@Component
 @RequestMapping("/students")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
+    @Autowired
     private PokemonApiService pokemonApiService;
 
     @GetMapping("/add")
     public ModelAndView addStudents(){
         ModelAndView modelAndView = new ModelAndView("studentForm");
-        modelAndView.addObject("student", new StudentForm());
+        modelAndView.addObject("student", new Student());
         return modelAndView;
-    }
-
-    @GetMapping("/{id}")
-    public Student getStudent(@PathVariable("id") String id){
-        return studentService.getStudentById(id);
     }
 
     @PostMapping("/add")
@@ -39,6 +34,7 @@ public class StudentController {
         }
         ModelAndView modelAndView = new ModelAndView("fetichePokemon");
 
+        modelAndView.addObject("pokemon", student);
         var hashCode = student.getFirstName().hashCode()+student.getName().hashCode();
         List<Pokemon> listPokemons = pokemonApiService.getPokemons();
 
@@ -50,6 +46,13 @@ public class StudentController {
 
         return modelAndView;
     }
+
+    @GetMapping("/{id}")
+    public Student getStudent(@PathVariable("id") String id){
+        return studentService.getStudentById(id);
+    }
+
+
 
     @PutMapping("/{id}")
     public void updateStudent(@PathVariable("id") String id, @RequestBody Student student) {

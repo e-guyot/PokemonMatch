@@ -8,7 +8,7 @@
 <body>
 
 <form action="#" method="post" th:action="@{/students/add}" th:object="${student}" accept-charset="utf-8">
-  <p><label>Nom : </label><input type="text" th:field="*{lastName}"></p>
+  <p><label>Nom : </label><input type="text" th:field="*{name}"></p>
   <p><label>Prénom : </label><input type="text" th:field="*{firstName}"></p>
   <button type="submit">Envoyer</button>
 </form>
