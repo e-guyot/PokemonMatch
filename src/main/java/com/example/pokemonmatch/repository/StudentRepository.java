@@ -1,14 +1,14 @@
-package com.example.pokemonmatch;
+package com.example.pokemonmatch.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.pokemonmatch.entity.Student;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Component("StudentService")
-public class StudentService {
+@Component("StudentRepository")
+public class StudentRepository {
 
 
     List<Student> students = new ArrayList<>(Arrays.asList(

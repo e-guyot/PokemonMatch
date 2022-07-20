@@ -1,4 +1,4 @@
-package com.example.pokemonmatch;
+package com.example.pokemonmatch.entity;
 
 import java.util.List;
 

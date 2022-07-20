@@ -1,10 +1,12 @@
-package com.example.pokemonmatch;
+package com.example.pokemonmatch.controller;
 
 
+import com.example.pokemonmatch.entity.Pokemon;
+import com.example.pokemonmatch.entity.Student;
+import com.example.pokemonmatch.repository.StudentRepository;
+import com.example.pokemonmatch.service.PokemonApiService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,7 +17,7 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-    private StudentService studentService;
+    private StudentRepository studentService;
     @Autowired
     private PokemonApiService pokemonApiService;
 
